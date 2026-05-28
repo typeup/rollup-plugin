@@ -24,7 +24,7 @@ export function typeup(options: TypeupRollupPluginOptions = {}): TypeupRollupPlu
 			}
 			const url = mendly.Uri.parse(id)
 			let result: TypeupTransformResult | null = null
-			if (url && extensions.some(extension => url.path[url.path.length - 1]?.endsWith("." + extension))) {
+			if (url && extensions.some(extension => url.extension == extension)) {
 				let serialized: string
 				try {
 					serialized = JSON.stringify(
