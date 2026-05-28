@@ -44,10 +44,24 @@ export function typeup(options: TypeupRollupPluginOptions = {}): TypeupRollupPlu
 						.map(([key, value]) => `import ${key} from "${value}";`)
 						.join(
 							"\n"
-						)}\nexport default ${serialized.replaceAll(/{"class":"block.import","source":"([a-zA-Z0-9_\-./]+)","content":"([a-zA-Z0-9_]+)"}/g, '{"class":"block.import","source":"$1","content":$2}')};`
+						)}\nexport default ${serialized.replaceAll(/\{[^{}]*"class":"block\.import"[^{}]*}/g, fixImports)};`
 				}
 			}
 			return result
 		}
 	} satisfies TypeupRollupPlugin
+}
+function fixImports(match: string): string {
+	let result = match
+	try {
+		const parsed = JSON.parse(match) as { class?: unknown; source?: unknown; content?: unknown }
+		if (
+			parsed.class == "block.import"
+			&& typeof parsed.source == "string"
+			&& typeof parsed.content == "string"
+			&& /^[a-zA-Z0-9_]+$/.test(parsed.content)
+		)
+			result = `{"class":"block.import","source":${JSON.stringify(parsed.source)},"content":${parsed.content}}`
+	} catch {}
+	return result
 }
