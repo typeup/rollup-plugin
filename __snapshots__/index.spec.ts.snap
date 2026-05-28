@@ -38,7 +38,7 @@ export default {"class":"document","content":[{"class":"block.import","source":"
 exports[`@typeup/rollup-plugin > transforms real parser output: 'import-same-file-twice' 1`] = `
 {
   "code": "import shared from "./shared.tup";
-export default {"class":"document","content":[{"class":"block.import","source":"./shared","content":"shared"},{"class":"block.import","source":"./shared","content":shared}]};",
+export default {"class":"document","content":[{"class":"block.import","source":"./shared","content":shared},{"class":"block.import","source":"./shared","content":shared}]};",
 }
 `;
 
@@ -46,7 +46,7 @@ exports[`@typeup/rollup-plugin > transforms real parser output: 'import-same-fil
 {
   "code": "import shared from "./alpha/shared.tup";
 import shared_beta from "./beta/shared.tup";
-export default {"class":"document","content":[{"class":"block.import","source":"./alpha/shared","content":"shared"},{"class":"block.import","source":"./beta/shared","content":shared_beta}]};",
+export default {"class":"document","content":[{"class":"block.import","source":"./alpha/shared","content":shared},{"class":"block.import","source":"./beta/shared","content":shared_beta}]};",
 }
 `;
 

@@ -44,7 +44,7 @@ export function typeup(options: TypeupRollupPluginOptions = {}): TypeupRollupPlu
 						.map(([key, value]) => `import ${key} from "${value}";`)
 						.join(
 							"\n"
-						)}\nexport default ${serialized.replace(/{"class":"block.import","source":"(.*)","content":"(.*)"}/, '{"class":"block.import","source":"$1","content":$2}')};`
+						)}\nexport default ${serialized.replaceAll(/{"class":"block.import","source":"([a-zA-Z0-9_\-./]+)","content":"([a-zA-Z0-9_]+)"}/g, '{"class":"block.import","source":"$1","content":$2}')};`
 				}
 			}
 			return result
