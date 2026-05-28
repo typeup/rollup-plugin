@@ -54,8 +54,8 @@
 		"vitest": "^4.1.7"
 	},
 	"dependencies": {
-		"@typeup/dom": "1.0.11-beta.14",
-		"@typeup/parser": "1.2.5-beta.18",
-		"mendly": "^3.1.1-beta.18"
+		"@typeup/dom": "1.0.11-beta.15",
+		"@typeup/parser": "1.2.5-beta.19",
+		"mendly": "^3.1.1-beta.21"
 	}
 }

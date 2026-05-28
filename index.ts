@@ -18,16 +18,22 @@ export function typeup(options: TypeupRollupPluginOptions = {}): TypeupRollupPlu
 		async transform(source, id) {
 			const imports: Record<string, mendly.Uri> = {}
 			function getName(uri: mendly.Uri, prefix?: string): string {
-				const result = (prefix ? prefix + "_" : "") + uri.path[uri.path.length - 1]
+				const result = (prefix ? prefix + "_" : "") + uri.name?.replace(".tup", "")
 				const current = imports[result]
-				return current != undefined && current.toString() != uri.toString() ? getName(uri, result) : result
+				return current != undefined && current.toString() != uri.toString() ? getName(uri.parent, result) : result
 			}
 			const url = mendly.Uri.parse(id)
 			let result: TypeupTransformResult | null = null
 			if (url && extensions.some(extension => url.path[url.path.length - 1]?.endsWith("." + extension))) {
 				let serialized: string
 				try {
-					serialized = JSON.stringify(await parser.parse(source, undefined, (locator: mendly.Uri) => getName(locator)))
+					serialized = JSON.stringify(
+						await parser.parse(source, undefined, (locator: mendly.Uri) => {
+							const result = getName(locator)
+							imports[result] = locator
+							return result
+						})
+					)
 				} catch (error) {
 					throw new TypeError(
 						`Parser result for "${id}" is not JSON-serializable: ${error instanceof Error ? error.message : String(error)}`
@@ -36,7 +42,9 @@ export function typeup(options: TypeupRollupPluginOptions = {}): TypeupRollupPlu
 				result = {
 					code: `${Object.entries(imports)
 						.map(([key, value]) => `import ${key} from "${value}";`)
-						.join("\n")}\nexport default ${serialized /*.replace(/content: "(.*)"/, 'content: $1')*/};`
+						.join(
+							"\n"
+						)}\nexport default ${serialized.replace(/{"class":"block.import","source":"(.*)","content":"(.*)"}/, '{"class":"block.import","source":"$1","content":$2}')};`
 				}
 			}
 			return result
