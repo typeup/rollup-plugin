@@ -1,0 +1,59 @@
+{
+	"name": "@binotype/rollup-plugin",
+	"version": "0.1.0-alpha",
+	"description": "Rollup plugin to import TypeUp files and parse them into a Binotype site.",
+	"author": "binotype",
+	"license": "MIT",
+	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/binotype/rollup-plugin.git"
+	},
+	"bugs": {
+		"url": "https://github.com/binotype/rollup-plugin/issues"
+	},
+	"homepage": "https://github.com/binotype/rollup-plugin",
+	"type": "module",
+	"types": "./dist/types/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/types/index.d.ts",
+			"import": "./dist/index.js",
+			"default": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist",
+		"LICENSE",
+		"README.md"
+	],
+	"git": {
+		"tagName": "release-${version}"
+	},
+	"github": {
+		"release": true
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"clean": "rimraf dist node_modules coverage",
+		"lint": "biome format .",
+		"format": "biome format --write .",
+		"test": "vitest --run",
+		"coverage": "vitest --coverage",
+		"verify": "npm run build && npm audit --omit=dev"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.16",
+		"@types/node": "^25.9.1",
+		"@vitest/coverage-v8": "^4.1.7",
+		"rimraf": "^6.1.3",
+		"typescript": "^6.0.3",
+		"vite": "^8.0.14",
+		"vitest": "^4.1.7"
+	},
+	"dependencies": {
+		"@typeup/dom": "1.0.11-beta.14",
+		"@typeup/parser": "1.2.5-beta.18",
+		"mendly": "^3.1.1-beta.18"
+	}
+}
