@@ -34,7 +34,9 @@
 		"release": true
 	},
 	"scripts": {
-		"build": "tsc -p tsconfig.build.json",
+		"build": "rimraf dist && npm run build:js && npm run build:types",
+		"build:js": "vite build",
+		"build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly",
 		"clean": "rimraf dist node_modules coverage",
 		"lint": "biome format .",
 		"format": "biome format --write .",
