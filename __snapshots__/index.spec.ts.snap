@@ -3,42 +3,48 @@
 exports[`@typeup/rollup-plugin > transforms real parser output: 'custom-extension' 1`] = `
 {
   "code": "
-export default {"class":"document","content":[{"class":"block.paragraph","content":[{"class":"inline.text","value":"chapter: Test"}]}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.paragraph","content":[{"class":"inline.text","value":"chapter: Test"}]}]});",
 }
 `;
 
 exports[`@typeup/rollup-plugin > transforms real parser output: 'fenced-code' 1`] = `
 {
   "code": "
-export default {"class":"document","content":[{"class":"block.code","content":[],"language":"js","value":"const x = 1"}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.code","content":[],"language":"js","value":"const x = 1"}]});",
 }
 `;
 
 exports[`@typeup/rollup-plugin > transforms real parser output: 'frame-directive' 1`] = `
 {
   "code": "
-export default {"class":"document","content":[{"class":"block.frame","content":[],"classes":["slides"],"source":"./slides.html"}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.frame","content":[],"classes":["slides"],"source":"./slides.html"}]});",
 }
 `;
 
 exports[`@typeup/rollup-plugin > transforms real parser output: 'heading' 1`] = `
 {
   "code": "
-export default {"class":"document","content":[{"class":"block.heading","content":[{"class":"inline.text","value":"Section"}],"level":1},{"class":"block.paragraph","content":[{"class":"inline.text","value":"Some text."}]}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.heading","content":[{"class":"inline.text","value":"Section"}],"level":1},{"class":"block.paragraph","content":[{"class":"inline.text","value":"Some text."}]}]});",
 }
 `;
 
 exports[`@typeup/rollup-plugin > transforms real parser output: 'import-directive' 1`] = `
 {
   "code": "import other from "./other.tup";
-export default {"class":"document","content":[{"class":"block.import","source":"./other","content":other}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.import","source":"./other","content":other}]});",
 }
 `;
 
 exports[`@typeup/rollup-plugin > transforms real parser output: 'import-same-file-twice' 1`] = `
 {
   "code": "import shared from "./shared.tup";
-export default {"class":"document","content":[{"class":"block.import","source":"./shared","content":shared},{"class":"block.import","source":"./shared","content":shared}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.import","source":"./shared","content":shared},{"class":"block.import","source":"./shared","content":shared}]});",
 }
 `;
 
@@ -46,28 +52,32 @@ exports[`@typeup/rollup-plugin > transforms real parser output: 'import-same-fil
 {
   "code": "import shared from "./alpha/shared.tup";
 import shared_beta from "./beta/shared.tup";
-export default {"class":"document","content":[{"class":"block.import","source":"./alpha/shared","content":shared},{"class":"block.import","source":"./beta/shared","content":shared_beta}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.import","source":"./alpha/shared","content":shared},{"class":"block.import","source":"./beta/shared","content":shared_beta}]});",
 }
 `;
 
 exports[`@typeup/rollup-plugin > transforms real parser output: 'inline-link' 1`] = `
 {
   "code": "
-export default {"class":"document","content":[{"class":"block.paragraph","content":[{"class":"inline.text","value":"Read "},{"class":"inline.link","content":[{"class":"inline.text","value":"Example"}],"target":"https://example.com"},{"class":"inline.text","value":"."}]}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.paragraph","content":[{"class":"inline.text","value":"Read "},{"class":"inline.link","content":[{"class":"inline.text","value":"Example"}],"target":"https://example.com"},{"class":"inline.text","value":"."}]}]});",
 }
 `;
 
 exports[`@typeup/rollup-plugin > transforms real parser output: 'inline-quote' 1`] = `
 {
   "code": "
-export default {"class":"document","content":[{"class":"block.paragraph","content":[{"class":"inline.quote","content":[{"class":"inline.text","value":"hello"}]}]}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.paragraph","content":[{"class":"inline.quote","content":[{"class":"inline.text","value":"hello"}]}]}]});",
 }
 `;
 
 exports[`@typeup/rollup-plugin > transforms real parser output: 'metadata-and-text' 1`] = `
 {
   "code": "
-export default {"class":"document","content":[{"class":"block.assignment","name":"title","value":"Example"},{"class":"block.paragraph","content":[{"class":"inline.text","value":"Simple paragraph."}]}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.assignment","name":"title","value":"Example"},{"class":"block.paragraph","content":[{"class":"inline.text","value":"Simple paragraph."}]}]});",
 }
 `;
 
@@ -78,41 +88,47 @@ exports[`@typeup/rollup-plugin > transforms real parser output: 'non-matching-ex
 exports[`@typeup/rollup-plugin > transforms real parser output: 'ordered-list' 1`] = `
 {
   "code": "
-export default {"class":"document","content":[{"class":"block.list.ordered","content":[{"class":"block.list.item","content":[{"class":"inline.text","value":"One"}]},{"class":"block.list.item","content":[{"class":"inline.text","value":"Two"}]}]}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.list.ordered","content":[{"class":"block.list.item","content":[{"class":"inline.text","value":"One"}]},{"class":"block.list.item","content":[{"class":"inline.text","value":"Two"}]}]}]});",
 }
 `;
 
 exports[`@typeup/rollup-plugin > transforms real parser output: 'paragraph' 1`] = `
 {
   "code": "
-export default {"class":"document","content":[{"class":"block.paragraph","content":[{"class":"inline.text","value":"hello"}]}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.paragraph","content":[{"class":"inline.text","value":"hello"}]}]});",
 }
 `;
 
 exports[`@typeup/rollup-plugin > transforms real parser output: 'targeted-link' 1`] = `
 {
   "code": "
-export default {"class":"document","content":[{"class":"block.paragraph","content":[{"class":"inline.text","value":"Open "},{"class":"inline.link","content":[{"class":"inline.text","value":"Slides"}],"target":"./slides.html","flags":["blank"]},{"class":"inline.text","value":"."}]}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.paragraph","content":[{"class":"inline.text","value":"Open "},{"class":"inline.link","content":[{"class":"inline.text","value":"Slides"}],"target":"./slides.html","flags":["blank"]},{"class":"inline.text","value":"."}]}]});",
 }
 `;
 
 exports[`@typeup/rollup-plugin > transforms real parser output: 'triple-quote' 1`] = `
 {
   "code": "
-export default {"class":"document","content":[{"class":"block.quote","content":[{"class":"block.paragraph","content":[{"class":"inline.text","value":"Highlighted.\\n"}]}]}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.quote","content":[{"class":"block.paragraph","content":[{"class":"inline.text","value":"Highlighted.\\n"}]}]}]});",
 }
 `;
 
 exports[`@typeup/rollup-plugin > transforms real parser output: 'unordered-list-dash' 1`] = `
 {
   "code": "
-export default {"class":"document","content":[{"class":"block.list.unordered","content":[{"class":"block.list.item","content":[{"class":"inline.text","value":"One"}]},{"class":"block.list.item","content":[{"class":"inline.text","value":"Two"}]}]}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.list.unordered","content":[{"class":"block.list.item","content":[{"class":"inline.text","value":"One"}]},{"class":"block.list.item","content":[{"class":"inline.text","value":"Two"}]}]}]});",
 }
 `;
 
 exports[`@typeup/rollup-plugin > transforms real parser output: 'unordered-list-star' 1`] = `
 {
   "code": "
-export default {"class":"document","content":[{"class":"block.paragraph","content":[{"class":"inline.text","value":"* One\\n"},{"class":"inline.text","value":"* Two"}]}]};",
+import { dom } from "@typeup/dom";
+export default dom.Document.hydrate({"class":"document","content":[{"class":"block.paragraph","content":[{"class":"inline.text","value":"* One\\n"},{"class":"inline.text","value":"* Two"}]}]});",
 }
 `;
