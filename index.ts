@@ -44,7 +44,7 @@ export function typeup(options: TypeupRollupPluginOptions = {}): TypeupRollupPlu
 						.map(([key, value]) => `import ${key} from "${value}";`)
 						.join(
 							"\n"
-						)}\nimport { dom } from "@typeup/dom";\nexport default dom.Document.hydrate(${serialized.replaceAll(/\{[^{}]*"class":"block\.import"[^{}]*}/g, fixImports)});`
+						)}\nexport default dom.Document.hydrate(${serialized.replaceAll(/\{[^{}]*"class":"block\.import"[^{}]*}/g, fixImports)});`
 				}
 			}
 			return result

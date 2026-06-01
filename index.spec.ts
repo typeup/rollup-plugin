@@ -66,27 +66,27 @@ const x = 1
 		{
 			name: "frame-directive",
 			id: "file:///tmp/frame.tup",
-			source: `!frame ./slides.html slides
+			source: `!frame slides.html slides
 `
 		},
 		{
 			name: "import-directive",
 			id: "file:///tmp/import.tup",
-			source: `!import ./other
+			source: `!import other
 `
 		},
 		{
 			name: "import-same-file-twice",
 			id: "file:///tmp/import-same-twice.tup",
-			source: `!import ./shared
-!import ./shared
+			source: `!import shared
+!import shared
 `
 		},
 		{
 			name: "import-same-filename-different-folders",
 			id: "file:///tmp/import-same-name-different-folders.tup",
-			source: `!import ./alpha/shared
-!import ./beta/shared
+			source: `!import alpha/shared
+!import beta/shared
 `
 		},
 		{ name: "inline-quote", id: "file:///tmp/quote.typeup", source: '\"hello\"' },
