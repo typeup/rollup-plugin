@@ -54,8 +54,10 @@
 		"vitest": "^4.1.7"
 	},
 	"dependencies": {
-		"@typeup/dom": "1.0.11-beta.17",
 		"@typeup/parser": "1.2.5-beta.20",
 		"mendly": "^3.1.1-beta.24"
+	},
+	"peerDependencies": {
+		"@typeup/dom": "^1.0.11-beta.17"
 	}
 }
