@@ -1,6 +1,6 @@
 {
 	"name": "@typeup/rollup-plugin",
-	"version": "0.1.0-alpha.9",
+	"version": "0.1.0-alpha.10",
 	"description": "Rollup plugin to import TypeUp files and parse them into a Binotype site.",
 	"author": "binotype",
 	"license": "MIT",
