@@ -20,10 +20,19 @@
 			"types": "./dist/types/index.d.ts",
 			"import": "./dist/index.js",
 			"default": "./dist/index.js"
+		},
+		"./types": {
+			"types": "./types.d.ts"
+		}
+	},
+	"typesVersions": {
+		"*": {
+			"types": ["types.d.ts"]
 		}
 	},
 	"files": [
 		"dist",
+		"types.d.ts",
 		"LICENSE",
 		"README.md"
 	],
