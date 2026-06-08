@@ -12,7 +12,7 @@ export interface TypeupRollupPlugin {
 	transform(source: string, id: string): Promise<TypeupTransformResult | null>
 }
 export function typeup(options: TypeupRollupPluginOptions = {}): TypeupRollupPlugin {
-	const extensions = options.extensions ?? ["tup", "typeup"]
+	const extensions = options.extensions ?? ["tup"]
 	return {
 		name: "@typeup/rollup-plugin",
 		async transform(source, id) {
